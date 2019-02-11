@@ -1,18 +1,22 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
 	public static void main(String[] args) {
 
+
 		Scanner sc = new Scanner(System.in);
+		Articulo articulo;
 		int opc;
-	    String nombre;
-	    String codigo;
-	    String descripcion;
+		String nombre;
+		String codigo;
+		String descripcion;
 		double precioCompra;
 		double precioVenta;
 		int stock;
-		
+		int posicion;
+		ArrayList <Articulo> almacen = new ArrayList();
 
 		while(true) {
 
@@ -33,7 +37,17 @@ public class Main {
 			switch(opc) {
 
 			case(1):
+			{
 
+				for(Articulo i: almacen) {
+
+					System.out.println(i);
+				}
+
+
+			}
+
+			case(2):
 			{
 				System.out.println("Introduce nombre articulo :");
 				nombre = sc.nextLine();
@@ -47,15 +61,23 @@ public class Main {
 				precioVenta = sc.nextDouble();
 				System.out.println("Introduce la cantidad de stock");
 				stock = sc.nextInt();
-				
-				
+				articulo = new Articulo (nombre,codigo,descripcion,precioCompra,precioVenta,stock);
+				almacen.add(articulo);
+
 			}
-			
-			case(2):
+
+			case(3):
 			{
-				
-				
+				System.out.println("Introduzca el codigo del elemento a eliminar");
+				codigo = sc.nextLine();
+				posicion = buscaCodigo(codigo,almacen);				
+				almacen.remove(posicion);
+
+
+
+
 			}
+
 			}
 
 
@@ -65,6 +87,29 @@ public class Main {
 		}
 
 
+	}
+
+	public int buscaCodigo(String codigo,ArrayList almacen) {
+
+		int posicion=0;
+		String datosArticulo;
+		char [] letrasCodigo = codigo.toCharArray();
+		char [] letrasArticulo;
+		
+
+		for(int i = 0; i < almacen.size(); i++) {
+
+			datosArticulo = (String) almacen.get(i);
+			letrasArticulo = datosArticulo.toCharArray();
+
+			for (int z = 0; z < datosArticulo.length(); z++) {
+
+				
+				
+			}
+		}
+
+		return posicion;
 	}
 
 }

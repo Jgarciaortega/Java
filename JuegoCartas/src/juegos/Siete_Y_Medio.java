@@ -10,13 +10,10 @@ public class Siete_Y_Medio extends Juego {
 
 	private Baraja barajaEspañola;
 
-
-
 	public Siete_Y_Medio(String nombre, String Idioma,int tipoBaraja) {
 
 		super(nombre, Idioma);
-		this.barajaEspañola = new Baraja (tipoBaraja,false);
-
+		
 	}
 
 	@Override
@@ -74,7 +71,7 @@ public class Siete_Y_Medio extends Juego {
 				imprimirPuntuacion();
 			}
 
-			if(super.puntosJugador1 > 7.5 || super.puntosJugador2 > 7.5) {
+			if(this.puntosJugador1 > 7.5 || this.puntosJugador2 > 7.5) {
 
 				break;
 			}
@@ -83,7 +80,7 @@ public class Siete_Y_Medio extends Juego {
 
 			if (tiradaPlayer1) {
 
-				tiradaPlayer1 = decisionTirada(super.nombreJugador1,super.puntosJugador1);
+				tiradaPlayer1 = decisionTirada(this.nombreJugador1,this.puntosJugador1);
 				carta1 = 0;
 
 			}
@@ -91,7 +88,7 @@ public class Siete_Y_Medio extends Juego {
 
 			if (tiradaPlayer2) {
 
-				tiradaPlayer2 = decisionTirada(super.nombreJugador2,super.puntosJugador2);
+				tiradaPlayer2 = decisionTirada(this.nombreJugador2,this.puntosJugador2);
 				carta2 = 0;
 
 			}
@@ -104,8 +101,8 @@ public class Siete_Y_Medio extends Juego {
 		
 		if (opc.equals("s")) {
 			
-			super.puntosJugador1 = 0;
-			super.puntosJugador2 = 0;
+			this.puntosJugador1 = 0;
+			this.puntosJugador2 = 0;
 			jugar();
 		}
 
@@ -114,8 +111,8 @@ public class Siete_Y_Medio extends Juego {
 
 	public void setNomJugador(String Player1, String Player2) {
 
-		super.nombreJugador1 = Player1;
-		super.nombreJugador2 = Player2;
+		this.nombreJugador1 = Player1;
+		this.nombreJugador2 = Player2;
 
 	}
 
@@ -149,7 +146,7 @@ public class Siete_Y_Medio extends Juego {
 		}else {
 			
 			System.out.printf("\n");
-			System.out.println("�" + nombre + " te plantas s/n?");		
+			System.out.println("¿" + nombre + " te plantas s/n?");		
 			opc = sc.nextLine();
 			if(opc.equals("n")) {
 
@@ -173,30 +170,30 @@ public class Siete_Y_Medio extends Juego {
 		String jugadorPerdedor = null;
 
 
-		puntosFaltan1 = faltaHasta7yMedio(super.puntosJugador1);
-		puntosFaltan2 = faltaHasta7yMedio(super.puntosJugador2);
+		puntosFaltan1 = faltaHasta7yMedio(this.puntosJugador1);
+		puntosFaltan2 = faltaHasta7yMedio(this.puntosJugador2);
 
-		if(puntosFaltan2 < puntosFaltan1 && super.puntosJugador2 <= 7.5 || super.puntosJugador1 > 7.5) {
+		if(puntosFaltan2 < puntosFaltan1 && this.puntosJugador2 <= 7.5 || this.puntosJugador1 > 7.5) {
 
-			jugadorGanador = super.nombreJugador2;
-			jugadorPerdedor = super.nombreJugador1;
-
-		} 
-		if (puntosFaltan1 < puntosFaltan2 && super.puntosJugador1 <= 7.5 || super.puntosJugador2 > 7.5) {
-
-			jugadorGanador = super.nombreJugador1;
-			jugadorPerdedor = super.nombreJugador2;
-
+			jugadorGanador = this.nombreJugador2;
+			jugadorPerdedor = this.nombreJugador1;
 
 		} 
-		if (super.puntosJugador1 > 7.5 && super.puntosJugador2 > 7.5) {
+		if (puntosFaltan1 < puntosFaltan2 && this.puntosJugador1 <= 7.5 || this.puntosJugador2 > 7.5) {
+
+			jugadorGanador = this.nombreJugador1;
+			jugadorPerdedor = this.nombreJugador2;
+
+
+		} 
+		if (this.puntosJugador1 > 7.5 && this.puntosJugador2 > 7.5) {
 
 			jugadorGanador = "EMPATE";
 			jugadorPerdedor = "EMPATE ";
 
 		}
 
-		if(super.puntosJugador1 == super.puntosJugador2) {
+		if(this.puntosJugador1 == this.puntosJugador2) {
 
 			jugadorGanador = "EMPATE";
 			jugadorPerdedor= "EMPATE";

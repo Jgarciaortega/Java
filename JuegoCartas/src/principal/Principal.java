@@ -14,6 +14,7 @@ public class Principal {
 		Scanner sc = new Scanner (System.in);
 		int opc = 1;
 		String player1;
+		Baraja baraja = new Baraja();
 		
 		String player2;
 
@@ -42,7 +43,7 @@ public class Principal {
 			case(2):
 
 			{
-
+				System.out.println(baraja);
 
 			}
 

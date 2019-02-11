@@ -20,6 +20,7 @@ public abstract class  Juego {
 
 		this.nombreJuego = nombre;
 		this.idioma = Idioma;
+		imprimirCabecera();
 
 	}
 
@@ -31,7 +32,7 @@ public abstract class  Juego {
 	private void imprimirCabecera() {
 		
 		System.out.println("***********************************************");
-		System.out.println("     JUEGOS DE CARTAS DAW DAW ");
+		System.out.println("    Bienvenido al juego del " + this.nombreJuego);
 		System.out.println("***********************************************");
 
 	}

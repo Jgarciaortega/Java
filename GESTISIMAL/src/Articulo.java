@@ -10,22 +10,37 @@ public class Articulo {
 	private int stock;
 
 	//CONSTRUCTOR
+	
 	public Articulo() {
-
-
 		
+		
+	}
+	
+	public Articulo(String nombre, String codigo, String descripcion, double precioCompra, double precioVenta,int stock) {
 
+		this.nombre = nombre;
+		this.codigo = codigo;
+		this.descripcion = descripcion;
+		this.precioCompra = precioCompra;
+		this.precioVenta = precioVenta;
+		this.stock = stock;
 	}
 
 	//PROPIEDADES
-	
+
 	public void altaArticulo() {
-		
-		
+
+
+	}
+
+	@Override
+	public String toString() {
+		return "Articulo [nombre=" + nombre + ", codigo=" + codigo + ", descripcion=" + descripcion + ", precioCompra="
+				+ precioCompra + ", precioVenta=" + precioVenta + ", stock=" + stock + "]";
 	}
 
 	public void bajaArticulo() {
-		
+
 
 	}
 
@@ -35,7 +50,7 @@ public class Articulo {
 		//Nombre
 		case(1):
 		{
-			
+
 		}
 		//Codigo
 		case(2):
