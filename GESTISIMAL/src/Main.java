@@ -89,7 +89,9 @@ public class Main {
 		int posicion=0;
 		String datosArticulo;
 		codigo = "codigo=" + codigo;
-
+		Object[] almacenString = almacen.toArray(new String[almacen.size()]);
+		
+		
 		for(int i = 0; i < almacen.size(); i++) {
 
 			datosArticulo = (String) almacen.get(i);
