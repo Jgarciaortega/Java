@@ -30,7 +30,7 @@ public class Articulo {
 
 	public void altaArticulo() {
 
-
+		
 	}
 
 	@Override

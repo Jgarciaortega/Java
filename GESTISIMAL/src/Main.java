@@ -43,6 +43,7 @@ public class Main {
 
 					System.out.println(i);
 				}
+				break;
 
 
 			}
@@ -50,6 +51,7 @@ public class Main {
 			case(2):
 			{
 				System.out.println("Introduce nombre articulo :");
+				sc.nextLine();
 				nombre = sc.nextLine();
 				System.out.println("Introduce codigo articulo :");
 				codigo = sc.nextLine();
@@ -63,9 +65,9 @@ public class Main {
 				stock = sc.nextInt();
 				articulo = new Articulo (nombre,codigo,descripcion,precioCompra,precioVenta,stock);
 				almacen.add(articulo);
-
+			
 			}
-
+			break;
 			case(3):
 			{
 				System.out.println("Introduzca el codigo del elemento a eliminar");
@@ -73,39 +75,33 @@ public class Main {
 				posicion = buscaCodigo(codigo,almacen);				
 				almacen.remove(posicion);
 
-
-
-
 			}
 
 			}
-
-
-
-
 
 		}
 
 
 	}
 
-	public int buscaCodigo(String codigo,ArrayList almacen) {
+	public static int buscaCodigo(String codigo,ArrayList almacen) {
 
 		int posicion=0;
 		String datosArticulo;
-		char [] letrasCodigo = codigo.toCharArray();
-		char [] letrasArticulo;
-		
+		codigo = "codigo=" + codigo;
 
 		for(int i = 0; i < almacen.size(); i++) {
 
 			datosArticulo = (String) almacen.get(i);
-			letrasArticulo = datosArticulo.toCharArray();
 
 			for (int z = 0; z < datosArticulo.length(); z++) {
 
-				
-				
+				if (datosArticulo.contains(codigo)) {
+
+					posicion = i;
+					break;
+				}
+
 			}
 		}
 
