@@ -8,7 +8,7 @@ import barajas.Carta;
 public class Siete_Y_Medio extends Juego {
 
 
-	private Baraja barajaEspañola;
+	private Baraja barajaEspanyola;
 
 	public Siete_Y_Medio(String nombre, String Idioma,int tipoBaraja) {
 
@@ -29,21 +29,21 @@ public class Siete_Y_Medio extends Juego {
 		double carta1 = 0;
 		double carta2 = 0;
 		
-		barajaEspañola.barajar();
+		barajaEspanyola.barajar();
 
 		//ZONA JUGAR PARTIDA
 
 		while(tiradaPlayer1 || tiradaPlayer2) {
 
 			if (tiradaPlayer1) {
-				cartaRobada = barajaEspañola.robar();
+				cartaRobada = barajaEspanyola.robar();
 				System.out.print("Carta para " + super.nombreJugador1  + ":" + cartaRobada);
 				carta1 = cartaRobada.getValor7yMedio();
 			}
 
 			if (tiradaPlayer2) {
 
-				cartaRobada = barajaEspañola.robar();
+				cartaRobada = barajaEspanyola.robar();
 
 				if(super.nombreJugador2.equals("CPU")) {
 
