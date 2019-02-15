@@ -39,13 +39,8 @@ public class Main {
 			case(1):
 			{
 
-				for(Articulo i: almacen) {
-
-					System.out.println(i);
-				}
+				mostrarListado(almacen);
 				break;
-
-
 			}
 
 			case(2):
@@ -65,15 +60,32 @@ public class Main {
 				stock = sc.nextInt();
 				articulo = new Articulo (nombre,codigo,descripcion,precioCompra,precioVenta,stock);
 				almacen.add(articulo);
-			
+				mostrarListado(almacen);
+
 			}
 			break;
 			case(3):
 			{
 				System.out.println("Introduzca el codigo del elemento a eliminar");
+				sc.nextLine();
 				codigo = sc.nextLine();
-				posicion = buscaCodigo(codigo,almacen);				
-				almacen.remove(posicion);
+				posicion = buscaCodigo(codigo,almacen);
+
+				if (posicion != 0) {
+
+					almacen.remove(posicion);
+					System.out.println("Ha sido borrado el articulo cuyo codigo es : " + codigo);
+
+				}else {
+
+					System.out.println("No se ha localizado ningun articulo con ese codigo");
+				}
+
+				mostrarListado(almacen);
+				
+				break;
+				
+				
 
 			}
 
@@ -84,23 +96,34 @@ public class Main {
 
 	}
 
+
+	public static void mostrarListado(ArrayList almacen) {
+		
+		System.out.println("*******************STOCK DE MATERIAL**********************");
+		System.out.println("");
+
+		for(int i = 0; i < almacen.size(); i++) {
+			
+			System.out.println(almacen.get(i));
+			
+		}
+				
+	}
 	public static int buscaCodigo(String codigo,ArrayList almacen) {
 
 		int posicion=0;
 		String datosArticulo;
-		codigo = "codigo=" + codigo;
-		Object[] almacenString = almacen.toArray(new String[almacen.size()]);
-		
-		
+		codigo = "codigo=" + codigo; //El programa busca la concatenacion de codigo= + el codigo del articulo introducido
+
 		for(int i = 0; i < almacen.size(); i++) {
 
-			datosArticulo = (String) almacen.get(i);
+			datosArticulo = almacen.get(i).toString(); //De esta forma se convierte la informacion de cada posicion a String
 
-			for (int z = 0; z < datosArticulo.length(); z++) {
+			for (int z = 0; z < datosArticulo.length(); z++) { 
 
-				if (datosArticulo.contains(codigo)) {
+				if (datosArticulo.contains(codigo)) { //Tras convertirlo en String busco si contiene el codigo buscado en su texto
 
-					posicion = i;
+					posicion = i; //Me quedo con su posicion y la devuelvo a salida de la funcion
 					break;
 				}
 
